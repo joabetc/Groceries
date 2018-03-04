@@ -4,6 +4,6 @@
         <TextField hint="Password" secure="true" />
 
         <Button text="Sign in" />
-        <Button text="Sign up for Groceries" />
+        <Button text="Sign up for Groceries" class="link" />
     </StackLayout>
 </Page>
