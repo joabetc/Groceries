@@ -1,5 +1,6 @@
 <Page>
     <StackLayout orientation="vertical">
+        <Image src="res://logo" stretch="none" horizontalAlignment="center" ></Image>
         <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
         <TextField hint="Password" secure="true" />
 
