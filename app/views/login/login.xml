@@ -1,8 +1,8 @@
 <Page loaded="loaded">
     <StackLayout orientation="vertical">
         <Image src="res://logo" stretch="none" horizontalAlignment="center" ></Image>
-        <TextField id="email" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
-        <TextField hint="Password" secure="true" />
+        <TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+        <TextField text="{{ password }}" hint="Password" secure="true" />
 
         <Button text="Sign in" tap="signIn" />
         <Button text="Sign up for Groceries" class="link" tap="register" />
