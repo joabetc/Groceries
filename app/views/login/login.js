@@ -1,11 +1,14 @@
 var frameModule = require("ui/frame");
+var page;
+var email;
 
-exports.loaded = function() {
-    console.log("hello");
+exports.loaded = function(args) {
+    page = args.object;
 };
 
 exports.signIn = function() {
-    alert("Signing in");
+    email = page.getViewById("email");
+    console.log(email.text);
 };
 
 exports.register = function() {
