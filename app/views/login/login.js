@@ -24,7 +24,7 @@ exports.signIn = function() {
         })
         .then(function() {
             frameModule.topmost().navigate("views/list/list");
-        })
+        });
 };
 
 exports.register = function() {
