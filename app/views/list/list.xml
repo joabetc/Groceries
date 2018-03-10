@@ -8,4 +8,5 @@
             </ListView.itemTemplate>
         </ListView>
     </GridLayout>
+    <ActivityIndicator busy="{{ isLoading }}" rowSpan="2" colSpan="2" />
 </Page>
