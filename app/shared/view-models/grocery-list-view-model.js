@@ -6,7 +6,29 @@ function GroceryListViewModel(items) {
     var baseUrl = config.apiUrl + "appdata/" + config.appKey + "/Groceries";
     var viewModel = new ObservableArray(items);
 
+    viewModel.load = function() {
+        return fetch(baseUrl, {
+            headers: getCommonHeaders()
+        })
+        .then(handleErrors)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            data.forEach(function(grocery) {
+                viewModel.push({
+                    name: grocery.Name,
+                    id: grocery._id
+                });
+            });
+        });
+    };
 
+    viewModel.empty = function() {
+        while (viewModel.length) {
+            viewModel.pop();
+        }
+    };
 
     return viewModel;
 }
