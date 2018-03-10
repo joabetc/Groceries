@@ -6,7 +6,8 @@ var page;
 var GroceryListViewModel = require("../../shared/view-models/grocery-list-view-model");
 var groceryList = new GroceryListViewModel([]);
 var pageData = new observableModule.fromObject({
-    groceryList: groceryList
+    groceryList: groceryList,
+    grocery: ""
 });
 
 exports.loaded = function(args) {
@@ -15,4 +16,25 @@ exports.loaded = function(args) {
     
     groceryList.empty();
     groceryList.load();
+};
+
+exports.add = function() {
+    if (pageData.get("grocery").trim() === "") {
+        dialogsModule.alert({
+            message: "Enter a grocery item",
+            okButtonText: "OK"
+        });
+        return;
+    }
+
+    page.getViewById("grocery").dismissSoftInput();
+    groceryList.add(pageData.get("grocery"))
+        .catch(function() {
+            dialogsModule.alert({
+                message: "An error ocurred while adding an item to your list.",
+                okButtonText: "OK"
+            });
+        });
+    
+    pageData.set("grocery", "");
 };
